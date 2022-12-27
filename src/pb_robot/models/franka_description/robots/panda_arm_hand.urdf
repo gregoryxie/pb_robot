@@ -254,14 +254,16 @@
       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
     </inertial>  
     <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://franka_description/meshes/visual/finger.dae"/>
+        <mesh filename="package://franka_description/meshes/collision/belt_finger_simplified.STL"/>
       </geometry>
       <material name="panda_grey"/>
     </visual>
     <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://franka_description/meshes/collision/finger.stl"/>
+        <mesh filename="package://franka_description/meshes/collision/belt_finger_simplified.STL"/>
       </geometry>
     </collision>
   </link>
@@ -274,28 +276,28 @@
     <visual>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://franka_description/meshes/visual/finger.dae"/>
+        <mesh filename="package://franka_description/meshes/collision/belt_finger_simplified.STL"/>
       </geometry>
       <material name="panda_grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://franka_description/meshes/collision/finger.stl"/>
+        <mesh filename="package://franka_description/meshes/collision/belt_finger_simplified.STL"/>
       </geometry>
     </collision>
   </link>
   <joint name="panda_finger_joint1" type="prismatic">
     <parent link="panda_hand"/>
     <child link="panda_leftfinger"/>
-    <origin rpy="0 0 0" xyz="0 0 0.0584"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0685"/>
     <axis xyz="0 1 0"/>
     <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
   </joint>
   <joint name="panda_finger_joint2" type="prismatic">
     <parent link="panda_hand"/>
     <child link="panda_rightfinger"/>
-    <origin rpy="0 0 0" xyz="0 0 0.0584"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0685"/>
     <axis xyz="0 -1 0"/>
     <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
     <mimic joint="panda_finger_joint1"/>
