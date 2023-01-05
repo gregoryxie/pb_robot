@@ -230,6 +230,9 @@ class Manipulator(object):
         self.SetJointValues(oldq)
         return val and distances
 
+    def HasObjectHandCollision(self, obj):
+        return pb_robot.collisions.link_pairs_collision(self.__robot, [self.__robot.link_from_name("panda_hand")], obj)
+
     def HasClearance(self, q):
         for i in self.__robot.all_links:
             for j in self.__robot.all_links:
@@ -362,5 +365,4 @@ class PandaHand(pb_robot.body.Body):
     def GetEETransform(self):
         '''Get the end effector transform
         @return 4x4 transform of end effector in the world'''
-        eeFrame = self.__robot.link_from_name('panda_hand')
-        return pb_robot.geometry.tform_from_pose(eeFrame.get_link_pose())
+        return pb_robot.geometry.tform_from_pose(self.link_from_name("panda_hand").get_link_pose())

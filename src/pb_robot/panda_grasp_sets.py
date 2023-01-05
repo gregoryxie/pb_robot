@@ -8,7 +8,7 @@ def box_grasp(box, push_distance=0.0):
     @param box The box to grasp
     @param push_distance The distance to push before grasping
     """
-    ee_to_palm_distance = 0.098 
+    ee_to_palm_distance = 0.15 # @Greg - estimated, update when measured
     lateral_offset = ee_to_palm_distance + push_distance
     aabb = pb_robot.aabb.get_aabb(box)
     (_, box_w, box_h) = pb_robot.aabb.get_aabb_extent(aabb)

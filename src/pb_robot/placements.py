@@ -30,7 +30,7 @@ def sample_placement_on_aabb(top_body, bottom_aabb, top_pose=pb_robot.geometry.u
     start_pose = top_body.get_pose()
     for _ in range(max_attempts):
         theta = np.random.uniform(*CIRCULAR_LIMITS)
-        rotation = pb_robot.geometry.Euler(yaw=theta)
+        rotation = pb_robot.geometry.Euler(yaw=theta, pitch=PI/2) # hack to make goal config of block rotated
         top_body.set_pose(pb_robot.geometry.multiply(pb_robot.geometry.Pose(euler=rotation), top_pose))
         center, extent = pb_robot.aabb.get_center_extent(top_body)
         lower = (np.array(bottom_aabb[0]) + percent*extent/2)[:2]
