@@ -11,5 +11,7 @@ from . import panda
 from . import wsg50_hand
 from . import yumi
 from . import panda_grasp_sets
+from . import aabb
+from . import geometry
 
 from . import planners
